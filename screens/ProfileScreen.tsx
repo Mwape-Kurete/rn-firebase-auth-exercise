@@ -1,27 +1,27 @@
-import { StyleSheet, Text, View, Button, SafeAreaView } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, Button, SafeAreaView } from "react-native";
+import React, { useState } from "react";
+import { getUserInfo, logoutUser } from "../services/authService";
 
 const ProfileScreen = () => {
+  // handle logout
+  const handleLogout = () => {
+    logoutUser();
+  };
 
-    // TODO: handle logout
-    const handleLogout = () => {}
+  const [user, setUser] = useState(null);
+  return (
+    <SafeAreaView>
+      <View style={{ padding: 20 }}>
+        <Text>Profile</Text>
 
-    return (
-        <SafeAreaView>
-            <View style={{padding:20}}>
-                <Text>Profile</Text>
+        {/* Show logged in user info */}
+        <Text>{getUserInfo()?.email}</Text>
+        <Text>{getUserInfo()?.uid}</Text>
 
-                {/* TODO: Show logged in user info */}
-                <Text>Email here</Text>
-                <Text>Username here</Text>
+        <Button title="Sign Out" color="green" onPress={handleLogout} />
+      </View>
+    </SafeAreaView>
+  );
+};
 
-                <Button 
-                    title="Sign Out"
-                    color="green"
-                    onPress={handleLogout} />
-            </View>
-        </SafeAreaView>
-    )
-}
-
-export default ProfileScreen
+export default ProfileScreen;
