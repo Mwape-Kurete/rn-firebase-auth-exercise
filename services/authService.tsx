@@ -1,4 +1,4 @@
-// TODO: Create Firebase Auth Functions
+// Create Firebase Auth Functions
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../firebase";
 
@@ -19,10 +19,6 @@ export const loginUser = (email: string, password: string) => {
     });
 };
 
-//TODO: Registration Functionality Homework
-// 1. first create user in AUTH
-// 2. then create user in Firestore
-
 export const logoutUser = () => {
   signOut(auth).then(() => {
     console.log("user has logged out...");
@@ -39,3 +35,7 @@ export const getUserInfo = () => {
     return null;
   }
 };
+
+//TODO: Registration Functionality Homework
+// 1. first create user in AUTH
+// 2. then create user in Firestore
