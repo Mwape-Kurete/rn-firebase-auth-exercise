@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useState } from "react";
-import { loginUser } from "../services/authService";
+import { loginUser, registerUser } from "../services/authService";
 
 const LoginScreen = () => {
   const [username, setUsername] = useState("");
@@ -22,6 +22,7 @@ const LoginScreen = () => {
     handleFormSubmit();
 
     // next step is to call the registration function from our auth service
+    registerUser(username, email, password);
   };
 
   const handleFormSubmit = () => {
