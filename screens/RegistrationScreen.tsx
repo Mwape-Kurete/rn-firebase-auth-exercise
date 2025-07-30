@@ -6,15 +6,19 @@ import {
   Text,
   View,
   TouchableOpacity,
+  TouchableHighlight,
 } from "react-native";
 import React, { useState } from "react";
 import { loginUser, registerUser } from "../services/authService";
+import { useNavigation } from "@react-navigation/native";
 
-const LoginScreen = () => {
+const RegistrationScreen = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  const navigation = useNavigation();
 
   // Registration Function
   const register = () => {
@@ -71,12 +75,17 @@ const LoginScreen = () => {
         </TouchableOpacity>
 
         {/* TODO: Add Register Navigation */}
+        <TouchableHighlight onPress={() => navigation.navigate("Login")}>
+          <Text style={{ textAlign: "center", marginTop: 20 }}>
+            Don't have an account? Register here.
+          </Text>
+        </TouchableHighlight>
       </View>
     </SafeAreaView>
   );
 };
 
-export default LoginScreen;
+export default RegistrationScreen;
 
 const styles = StyleSheet.create({
   container: {

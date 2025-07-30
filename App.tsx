@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import ProfileScreen from "./screens/ProfileScreen";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
+import RegistrationScreen from "./screens/RegistrationScreen";
 
 // Navigation Container
 
@@ -45,6 +46,9 @@ export default function App() {
           <Stack.Screen name="Login" component={LoginScreen} />
         </Stack.Navigator>
       )}
+      <Stack.Navigator>
+        <Stack.Screen name="Registration" component={RegistrationScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

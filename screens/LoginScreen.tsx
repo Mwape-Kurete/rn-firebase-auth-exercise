@@ -5,13 +5,17 @@ import {
   Text,
   View,
   TouchableOpacity,
+  TouchableHighlight,
 } from "react-native";
 import React, { useState } from "react";
 import { loginUser } from "../services/authService";
+import { useNavigation } from "@react-navigation/native";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigation = useNavigation();
 
   // Login Function
   const login = () => {
@@ -42,7 +46,12 @@ const LoginScreen = () => {
           <Text style={styles.buttonText}>Login Button</Text>
         </TouchableOpacity>
 
-        {/* TODO: Add Register Navigation */}
+        {/* Add Register Navigation */}
+        <TouchableHighlight onPress={() => navigation.navigate("Registration")}>
+          <Text style={{ textAlign: "center", marginTop: 20 }}>
+            Don't have an account? Register here.
+          </Text>
+        </TouchableHighlight>
       </View>
     </SafeAreaView>
   );
