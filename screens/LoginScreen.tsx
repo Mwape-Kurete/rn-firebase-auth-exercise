@@ -47,11 +47,14 @@ const LoginScreen = () => {
         </TouchableOpacity>
 
         {/* Add Register Navigation */}
-        <TouchableHighlight onPress={() => navigation.navigate("Registration")}>
-          <Text style={{ textAlign: "center", marginTop: 20 }}>
+        <TouchableOpacity
+          style={styles.buttonAlt}
+          onPress={() => navigation.navigate("Registration")}
+        >
+          <Text style={{ textAlign: "center" }}>
             Don't have an account? Register here.
           </Text>
-        </TouchableHighlight>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -82,5 +85,11 @@ const styles = StyleSheet.create({
   buttonText: {
     textAlign: "center",
     color: "white",
+  },
+  buttonAlt: {
+    backgroundColor: "#e6e6e6ff",
+    textAlign: "center",
+    padding: 10,
+    marginTop: 15,
   },
 });

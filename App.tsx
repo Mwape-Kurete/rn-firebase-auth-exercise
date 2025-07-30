@@ -44,16 +44,9 @@ export default function App() {
         // if the user is not logged in show the auth screens
         <Stack.Navigator>
           <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Registration" component={RegistrationScreen} />
         </Stack.Navigator>
       )}
-      <Stack.Navigator>
-        <Stack.Screen name="Registration" component={RegistrationScreen} />
-      </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-//TODO: Access Control
-// 1. setup navigation for when a user is logged out
-// 2. setup navigation for when a user is logged in
-// 3. listen to wether when a user is logged in or not
